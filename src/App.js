@@ -4,9 +4,9 @@ import TodoForm from './components/TodoForm';
 
 const todo = [
   {
-      task: 'Organize',
+      task: '',
       id: 1,
-      completed: false
+      complete: false
   }
 ]
 
@@ -14,13 +14,25 @@ class App extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      todo: todo,
-    };
+      todo
+    }
+    setTimeout(() => {this.addTodo({preventdefault: () => {}}, 'another task')}, 2000);
   }
 
-  completed() {
-    this.state.todo = [];
+  toggle = itemId => {
+    console.log(itemId)
   }
+
+  addTodo = (e, item) => {
+    e.preventdefault();
+    const newItem = {
+      name: item,
+      id: Date.now(),
+      complete: false
+    }
+    this.setState({todo: [...this.state.todo, newItem]})
+  }
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -28,7 +40,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
+        <TodoForm addItem={this.addItem}/>
         <TodoList completed={this.completed} todo={this.state.todo} />
       </div>
     );

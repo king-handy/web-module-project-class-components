@@ -1,7 +1,6 @@
 import React from 'react';
 
-class TodoForm extends React.Component {
-    render() {
+const TodoForm = props => {
         return (
             <form>
                 <input type='text' name='item' />
@@ -9,7 +8,6 @@ class TodoForm extends React.Component {
                 <button onClick={props.completed}>Completed</button>
             </form>
         )
-    }
 }
 
 export default TodoForm;

@@ -2,8 +2,7 @@
 // // feel free to change this component.js into TodoList.js
 
 import React from 'react';
-import Todo from './components/Todo';
-import TodoForm from './components/TodoForm';
+// import Todo from './components/Todo';
 
 const TodoList = props => {
     const completed = () => {
@@ -12,9 +11,9 @@ const TodoList = props => {
 
     return (
         <div className='todo-list'>
-            {props.todo.map(item => (
+            {/* {props.todo.map(item => (
                 <Todo key={item.id} item={item} />
-            ))}
+            ))} */}
             <button className='completed' onClick={completed}>Completed</button>
         </div>
     );
