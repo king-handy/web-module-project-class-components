@@ -1,13 +1,15 @@
 import React from 'react';
 
-class ToDoForm extends React.Component {
-    return (
-        <form>
-            <input type='text' name='item' />
-            <button>Add ToDo</button>
-            <button>Completed</button>
-        </form>
-    )
+class TodoForm extends React.Component {
+    render() {
+        return (
+            <form>
+                <input type='text' name='item' />
+                <button>Add Item</button>
+                <button onClick={props.completed}>Completed</button>
+            </form>
+        )
+    }
 }
 
-export default ToDoForm;
+export default TodoForm;
