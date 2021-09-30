@@ -19,10 +19,6 @@ class App extends React.Component {
     setTimeout(() => {this.addTodo({preventdefault: () => {}}, 'another task')}, 2000);
   }
 
-  toggle = itemId => {
-    console.log(itemId)
-  }
-
   addTodo = (e, item) => {
     e.preventdefault();
     const newItem = {
@@ -40,8 +36,8 @@ class App extends React.Component {
     return (
       <div className='App'>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addItem={this.addItem}/>
-        <TodoList completed={this.completed} todo={this.state.todo} />
+        <TodoForm test='test' addItem={this.addItem} />
+        <TodoList completed={this.toggle} todo={this.state.todo} />
       </div>
     );
   }
