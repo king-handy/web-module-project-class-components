@@ -1,7 +1,14 @@
 import React from 'react';
-
+import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import ToDoList from './components/TodoList';
+
+const todo = [
+  {
+      task: 'Organize',
+      id: 1,
+      completed: false
+  }
+]
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +28,8 @@ class App extends React.Component {
     return (
       <div className='App'>
         <h2>Welcome to your Todo App!</h2>
-        <ToDoList completed={this.state.completed} todo={todo}/>
+        <TodoForm />
+        <TodoList completed={this.completed} todo={this.state.todo} />
       </div>
     );
   }

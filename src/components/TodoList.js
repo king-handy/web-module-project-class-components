@@ -5,17 +5,19 @@ import React from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 
-class TodoList extends React.Component {
-
-    render() {
-        return (
-            <div>
-              {props.}
-                <TodoForm />
-                <Todo />
-            </div>
-        )
+const TodoList = props => {
+    const completed = () => {
+        props.completed();
     }
+
+    return (
+        <div className='todo-list'>
+            {props.todo.map(item => (
+                <Todo key={item.id} item={item} />
+            ))}
+            <button className='completed' onClick={completed}>Completed</button>
+        </div>
+    );
 }
 
 export default TodoList;
