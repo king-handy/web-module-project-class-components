@@ -19,6 +19,9 @@ export default class ToDoForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.addItem(this.state.toDoText);
+        this.setState({
+            toDoText: ''
+        })
     }
 
     render() {
