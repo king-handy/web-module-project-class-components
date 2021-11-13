@@ -2,18 +2,9 @@ import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
-const todo = [
-  {
-      task: '',
-      id: 1,
-      complete: false
-  }
-]
-
 class App extends React.Component {
   constructor(props) {
     super();
-    this.state = {
       this.state = {
         todos: [
             {
@@ -28,18 +19,18 @@ class App extends React.Component {
             }
         ]
     }
-    }
     setTimeout(() => {this.addTodo({preventdefault: () => {}}, 'another task')}, 2000);
   }
 
-  addTodo = (e, item) => {
-    e.preventdefault();
-    const newItem = {
-      name: item,
-      id: Date.now(),
-      complete: false
+  addItem = (taskName) => {
+    const newTodo = {
+      task: taskName,
+        id: new Date(),
+        completed: false
     }
-    this.setState({todo: [...this.state.todo, newItem]})
+    this.setState({
+      todos: [...this.setState.todos, newTodo]
+    })
   }
 
   // you will need a place to store your state in this component.
@@ -49,7 +40,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <h2>Todo App!</h2>
-        <TodoForm test='test' addItem={this.addItem} />
+        <TodoForm />
         <TodoList todos={this.state.todos} />
       </div>
     );
