@@ -7,6 +7,20 @@ import Todo from './components/Todo';
 class TodoList extends React.Component {
     constructor() {
         super();
+        this.state = {
+            todos: [
+                {
+                    task: 'wash dishes',
+                    id: 1,
+                    completed: false
+                },
+                {
+                    task: 'mop floor',
+                    id: 2,
+                    completed: false
+                }
+            ]
+        }
     }
     
     complete = () => {
@@ -15,11 +29,8 @@ class TodoList extends React.Component {
 
     render() {
         return (
-            <div className='todo-list'>
-                {this.props.todo.map(item => (
-                    <Todo key={item.id} item={item} />
-                ))}
-                <button className='completed' onClick={this.complete}>Completed</button>
+            <div>
+                <TodoList todos={this.state.todos} />
             </div>
         );
     }
