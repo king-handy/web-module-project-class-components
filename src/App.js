@@ -42,9 +42,9 @@ class App extends React.Component {
             completed: !todo.completed
           };
         } else {
-          return todo;
+          return {...todo};
         }
-      })
+      }),
     })
   }
 
@@ -56,7 +56,9 @@ class App extends React.Component {
       <div className='App'>
         <h2>Todo App!</h2>
         <TodoForm addItem={this.addItem} />
-        <TodoList todos={this.state.todos} />
+        <TodoList 
+          todos={this.state.todos} 
+          toggleCompleted={this.toggleCompleted} />
       </div>
     );
   }

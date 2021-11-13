@@ -8,7 +8,10 @@ export default function TodoList(props) {
     return (
         <div>
             {props.todos.map(todo => (
-                <ToDo todo={todo.id} todo={todo}/>
+                <ToDo todo={todo.id} 
+                todo={todo} 
+                toggleItem={props.toggleCompleted} 
+            />
             ))}
         </div>
     )
