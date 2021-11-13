@@ -29,10 +29,10 @@ export default class ToDoForm extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor='todo-input'>Add Todo: </label>
-                    <input 
-                        id='todo-input' 
+                    <input
+                        id='todo-input'
                         name='toDoText'
-                        value={this.state.toDoText} 
+                        value={this.state.toDoText}
                         onChange={this.handleChanges} />
                 </form>
             </div>

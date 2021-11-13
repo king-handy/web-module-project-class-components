@@ -5,28 +5,28 @@ import TodoForm from './components/TodoForm';
 class App extends React.Component {
   constructor(props) {
     super();
-      this.state = {
-        todos: [
-            {
-                task: 'wash dishes',
-                id: 1,
-                completed: false
-            },
-            {
-                task: 'mop floor',
-                id: 2,
-                completed: false
-            }
-        ]
+    this.state = {
+      todos: [
+        {
+          task: 'wash dishes',
+          id: 1,
+          completed: false
+        },
+        {
+          task: 'mop floor',
+          id: 2,
+          completed: false
+        }
+      ]
     }
-    setTimeout(() => {this.addTodo({preventdefault: () => {}}, 'another task')}, 2000);
+    setTimeout(() => { this.addTodo({ preventdefault: () => { } }, 'another task') }, 2000);
   }
 
   addItem = (taskName) => {
     const newTodo = {
       task: taskName,
-        id: new Date(),
-        completed: false
+      id: new Date(),
+      completed: false
     }
     this.setState({
       todos: [...this.setState.todos, newTodo]
@@ -38,11 +38,11 @@ class App extends React.Component {
       todos: this.state.todos.map(todo => {
         if (todo.id === id) {
           return {
-            ...todo, 
+            ...todo,
             completed: !todo.completed
           };
         } else {
-          return {...todo};
+          return { ...todo };
         }
       }),
     })
@@ -56,8 +56,8 @@ class App extends React.Component {
       <div className='App'>
         <h2>Todo App!</h2>
         <TodoForm addItem={this.addItem} />
-        <TodoList 
-          todos={this.state.todos} 
+        <TodoList
+          todos={this.state.todos}
           toggleCompleted={this.toggleCompleted} />
       </div>
     );
