@@ -14,7 +14,20 @@ class App extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      todo
+      this.state = {
+        todos: [
+            {
+                task: 'wash dishes',
+                id: 1,
+                completed: false
+            },
+            {
+                task: 'mop floor',
+                id: 2,
+                completed: false
+            }
+        ]
+    }
     }
     setTimeout(() => {this.addTodo({preventdefault: () => {}}, 'another task')}, 2000);
   }
@@ -37,7 +50,7 @@ class App extends React.Component {
       <div className='App'>
         <h2>Todo App!</h2>
         <TodoForm test='test' addItem={this.addItem} />
-        <TodoList completed={this.toggle} todo={this.state.todo} />
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }
