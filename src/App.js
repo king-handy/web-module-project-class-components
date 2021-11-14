@@ -19,7 +19,6 @@ class App extends React.Component {
         }
       ]
     }
-    setTimeout(() => { this.addTodo({ preventdefault: () => { } }, 'another task') }, 2000);
   }
 
   addItem = (taskName) => {
@@ -29,13 +28,13 @@ class App extends React.Component {
       completed: false
     }
     this.setState({
-      todos: [...this.setState.todos, newTodo]
+      todos: [...this.state.todos, newTodo]
     })
   }
 
   toggleCompleted = (id) => {
     this.setState({
-      todos: this.state.todos.map(todo => {
+      todos: this.state.todos.map((todo) => {
         if (todo.id === id) {
           return {
             ...todo,
